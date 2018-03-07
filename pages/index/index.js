@@ -24,6 +24,7 @@ Page({
         query.select("#item1").boundingClientRect(function(res){
             console.log(res.height);
         }).exec();*/
+        console.log("test git");
     },
     testClick:function(e){
         //console.log(e);
