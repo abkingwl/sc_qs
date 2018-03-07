@@ -14,6 +14,37 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+//array to string
+var arrayToString=function(arr){
+    var tempString='';
+    for(var i=0; i<arr.length; i++){
+        tempString=tempString+arr[i]+',';
+    };
+    return tempString.substr(0,tempString.length-2);
+}
+
+//whether in array
+var arrayContains=function(arr, obj) {
+    var i = arr.length;
+    while (i--) {
+      if (arr[i] === obj) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+//get index for array
+var getArrayIndex=function(arr,obj){
+    var temp=-1;
+    for(var i=0; i<arr.length; i++){
+        if(arr[i]==obj){
+            temp=i;
+        }
+    }
+    return temp;
+}
+
 //获取今天日期
 var getDateToday=function(){
     var now = new Date();
@@ -69,4 +100,4 @@ var showModel = (title, content) => {
     })
 }
 
-module.exports = { formatTime, showBusy, showSuccess, showModel, getDateToday, getTimeNow }
+module.exports = { formatTime, showBusy, showSuccess, showModel, getDateToday, getTimeNow, arrayContains, getArrayIndex, arrayToString }

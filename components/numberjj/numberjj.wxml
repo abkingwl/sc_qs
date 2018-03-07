@@ -1,0 +1,10 @@
+<!-- 主容器 -->  
+<view class="stepper">  
+    <!-- 减号 -->  
+    <text class="{{minusStatus}}" style="font-weight:bold" bindtap="bindMinus">-</text>  
+    <!-- 数值 -->  
+    <input class="weui-input" type="number" bindchange="bindManual" value="{{num}}" maxlength="3" />  
+    <!-- 加号 -->  
+    <text class="normal" style="font-weight:bold" bindtap="bindPlus">+</text>  
+</view>
+<slot></slot>
