@@ -13,7 +13,6 @@ Page({
         operationOn:0,
         editNotSelected:true,
         deleteNotSelected:true
-        
     },
     onLoad:function(){
         this.setData({
@@ -29,9 +28,15 @@ Page({
     testClick:function(e){
         //console.log(e);
     },
+    //admin点击管理活动按钮
+    adminClick:function(e){
+        wx.navigateTo({
+            url: '../admin/adminList/adminList?adminId='+this.data.userInfo.userId
+        })
+    }
 
     //check可操作的项目
-    checkOperation:function(){
+    /*checkOperation:function(){
         var opAdmin=[];
         var myId=this.data.userInfo.userId;
         var actList=this.data.activityList;
@@ -40,30 +45,30 @@ Page({
         }
         console.log(opAdmin);
         return opAdmin;
-    },
+    },*/
 
     //default下按编辑
-    editStart:function(){
+    /*editStart:function(){
         var opAdmin=this.checkOperation();
         this.setData({
             operationAdmin:opAdmin,
             operationOn:1
         });
         //console.log(this.data.operations);
-    },
+    },*/
     //default下按删除
-    deleteStart:function(){
+    /*deleteStart:function(){
         this.setData({
             operationOn:2
         });
-    },
+    },*/
 
     //edit下和delete下未选择时按取消
-    cancelStart:function(){
+    /*cancelStart:function(){
         this.setData({
             operationOn:0
         });
-    }
+    }*/
 
     
 });

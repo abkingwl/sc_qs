@@ -2,7 +2,7 @@
 <view class="page container page_activity_list">
   <view class="activity_list_wrapper">
     <scroll-view scroll-y class="activity_list_container">
-      <view class="activity_item" hover-class="activity_item_on" id="item{{index}}" wx:for="{{activityList}}" bindtap="testClick">
+      <view class="activity_item" hover-class="activity_item_on" data-activity-id="{{activityList[index].activityId}}" wx:for="{{activityList}}" bindtap="editClick">
         <view class="activity_item_left">
           <text class="item_week">周{{activityList[index].activityWeek}}</text>
           <text class="item_place">{{activityList[index].activityPlace}}</text>
@@ -21,7 +21,7 @@
       </view>
     </scroll-view>
   </view>
-  <view class="operation_bar" wx:if="{{userInfo.isAdmin}}">
+  <view class="operation_bar">
     <!--<view class="operation_default" wx:if="{{operationOn==0}}">
       <button class="btn_default_new" type="primary" plain="true">新建</button>
       <button class="btn_default_edit" bindtap="editStart" type="primary">编辑</button>
@@ -36,6 +36,6 @@
       <button class="btn_edit_cancel" bindtap="cancelStart">取消</button>
       <button class="btn_delete_delete" disabled="{{deleteNotSelected}}" type="warn">删除</button>
     </view>-->
-    <button class="operation_admin" type="primary" bindtap="adminClick">管理活动</button>
+    <button class="operation_admin" type="primary" bindtap="newClick">新建</button>
   </view>
 </view>
