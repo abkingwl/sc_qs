@@ -14,6 +14,7 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+//获取今天日期
 var getDateToday=function(){
     var now = new Date();
     var year = now.getFullYear();
@@ -31,6 +32,16 @@ var getDateToday=function(){
     // var s = now.getSeconds();
     var formatDate =  year + '-' + month + '-' + day;
     return formatDate;
+}
+
+//获取当前时间
+var getTimeNow=function(){
+    var now = new Date();
+    var h = now.getHours();
+    var m = now.getMinutes();
+    // var s = now.getSeconds();
+    var formatTime =  h + ':' + m;
+    return formatTime;
 }
 
 
@@ -58,4 +69,4 @@ var showModel = (title, content) => {
     })
 }
 
-module.exports = { formatTime, showBusy, showSuccess, showModel, getDateToday }
+module.exports = { formatTime, showBusy, showSuccess, showModel, getDateToday, getTimeNow }

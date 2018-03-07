@@ -1,10 +1,13 @@
-var {getDateToday}=require('../../../utils/js/util');
+var {getTimeNow,getDateToday}=require('../../../utils/js/util');
 
 Page({
   data:{
 
     type: ["羽毛球", "聚餐", "游玩"],
     typeIndex: 0,
+
+    place: ["雅戈尔", "启航", "其他"],
+    placeIndex: 0
 
   },
   onLoad:function(){
@@ -18,26 +21,44 @@ Page({
 
     //test print
     console.log(getDateToday());
+    console.log(getTimeNow());
   },
 
-  //activityType change
+  //type change
   bindTypeChange: function(e) {
-    console.log('picker account 发生选择改变，携带值为', e.detail.value);
-
     this.setData({
       typeIndex: e.detail.value
     })
   },
-
+  //date change
   bindDateChange: function (e) {
     this.setData({
         date: e.detail.value
     })
   },
-  bindTimeChange: function (e) {
-      this.setData({
-          time: e.detail.value
-      })
+  //time change
+  bindStartTimeChange: function (e) {
+    this.setData({
+      startTime: e.detail.value
+    })
   },
+  bindEndTimeChange: function (e) {
+    this.setData({
+      endTime: e.detail.value
+    })
+  },
+  //place change
+  bindPlaceChange: function(e) {
+    this.setData({
+      placeIndex: e.detail.value
+    })
+  },
+  //count change
+  bindCountchange:function(e){
+    this.setData({
+      count: e.detail.value
+    });
+    console.log(this.data.count);
+  }
 
 });
