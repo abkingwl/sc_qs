@@ -1,0 +1,14 @@
+/**app.wxss**/
+@import "./utils/css/weui.wxss";
+page{
+  background-color: #F8F8F8;
+  height: 100%;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  background-color: #F8F8F8;
+  font-size: 16px;
+} 
