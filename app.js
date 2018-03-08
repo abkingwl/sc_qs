@@ -5,8 +5,8 @@
 App({
     onLaunch: function () {
         //console.log("app launched!");
-        wx.navigateTo({
+        /*wx.navigateTo({
             url:"pages/admin/adminNew/adminNew"
-        });
+        });*/
     }
 })

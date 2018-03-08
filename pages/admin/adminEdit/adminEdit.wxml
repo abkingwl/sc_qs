@@ -5,7 +5,7 @@
   </view>-->
   <view class="page__bd">
     <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">错误提示:{{errors}}填写有误，请检查！</view>
-  <view class="weui-cells__title">新建活动</view>
+  <view class="weui-cells__title">编辑活动</view>
     <view class="weui-cells weui-cells_after-title">
         <!-- activity type -->
         <view class="weui-cell weui-cell_input">

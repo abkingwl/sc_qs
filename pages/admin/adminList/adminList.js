@@ -25,7 +25,9 @@ Page({
   //edit click
   editClick:function(e){
     var activityId=e.currentTarget.dataset.activityId;
-    console.log(activityId);
+    wx.navigateTo({
+      url:"../adminEdit/adminEdit?activityId="+activityId
+    });
 
   }  
 });

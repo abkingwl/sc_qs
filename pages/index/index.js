@@ -19,6 +19,10 @@ Page({
             userInfo:mockData.userInfo,
             activityList:mockData.activityList,
         });
+        wx.setStorage({
+            key:"userId",
+            data:this.data.userInfo.userId
+        });
         /*var query=wx.createSelectorQuery().in(this);
         query.select("#item1").boundingClientRect(function(res){
             console.log(res.height);

@@ -11,17 +11,6 @@ var data={
   },
   activityList:[
     {
-      activityId:21,
-      activityName:"",
-      activityDate:"2018-04-01",
-      activityTime:"18:00-20:00",
-      activityWeek:"2",
-      activityPlace:"雅戈尔",
-      activityAdmin:1,
-      activityApplyMemberCount:12,
-      activityMemberCount:30,
-      activityCost:25
-    },{
       activityId:22,
       activityName:"",
       activityDate:"2018-04-01",
@@ -32,6 +21,17 @@ var data={
       activityApplyMemberCount:12,
       activityMemberCount:30,
       activityCost:25
+    },{
+      activityId:23,
+      activityName:"",
+      activityDate:"2018-06-01",
+      activityTime:"17:00-20:30",
+      activityWeek:"4",
+      activityPlace:"启航",
+      activityAdmin:1,
+      activityApplyMemberCount:18,
+      activityMemberCount:25,
+      activityCost:100
     },{
       activityId:22,
       activityName:"",
