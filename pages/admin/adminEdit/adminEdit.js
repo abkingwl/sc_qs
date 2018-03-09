@@ -1,18 +1,21 @@
 var {getTimeNow,getDateToday,arrayContains,getArrayIndex,arrayToString}=require('../../../utils/js/util');
-
+var mockdata=require("adminEditMockData.js");
 const enStr=['type','date','startTime','endTime','place','count','cost'];
 const chStr=['活动类型','活动日期','开始时间','结束时间','活动地点','人数限制','费用'];
+const actTypes=["羽毛球", "聚餐", "游玩"];
+const actPlaces=["雅戈尔", "启航", "其他"];
+
 Page({
   data:{
 
-    types: ["羽毛球", "聚餐", "游玩"],
+    types: actTypes,
     typeIndex: 0,
     type: "羽毛球",
 
     startTime:"19:00",
     endTime:"22:00",
 
-    places: ["雅戈尔", "启航", "其他"],
+    places: actPlaces,
     placeIndex: 0,
     place: "雅戈尔",
 
@@ -29,19 +32,10 @@ Page({
   onLoad:function(options){
     var _this=this;
     //init set
-    wx.setNavigationBarTitle({
-      title: "编辑活动" //页面标题
+    wx.setNavigationBarTitle({//页面标题
+      title: "编辑活动" 
     });
-    this.setData({
-      date:getDateToday()
-    });
-
-    //test print
-    //console.log(enStr);
-    //console.log(getDateToday());
-    //console.log(getTimeNow());
-    //console.log(options);
-    wx.getStorage({
+    wx.getStorage({//获取adminId
       key:"userId",
       success: function(res) {
         _this.setData({
@@ -49,7 +43,34 @@ Page({
         });
       }
     });
+    //向服务器请求本活动的具体数据
+    //wx.request();
+    //此处先用本地数据，进行一些处理和初始化
+
+    //初始化数据
+    var formatData=this.initData(mockdata);
+    for(var key in formatData){
+      this.setData({
+        [key]:formatData[key]
+      })
+    }
+
+    //test print
+    
   },
+  //init activity data from server
+  initData:function(originData){
+    var data={};
+    for(var key in originData){
+      data[key]=originData[key];
+    };
+    data.typeIndex=getArrayIndex(actTypes,data.type);
+    data.placeIndex=getArrayIndex(actPlaces,data.place);
+    data.memoLength=data.memo.length;
+    return data;
+  },
+
+
   //child component trigger
   listenAtComponent:function(e){
     this.setData({
@@ -118,6 +139,11 @@ Page({
   //confirm
   confirmToAdd:function(){
     console.dir(this.data);
+    /*setTimeout(function(){
+      wx.navigateBack({
+        delta:1
+      })
+    },2000);*/
   },
 
 
