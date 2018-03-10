@@ -30,7 +30,11 @@ Page({
         console.log("test git");
     },
     testClick:function(e){
-        //console.log(e);
+        var actId=e.currentTarget.dataset.activityId;
+        wx.navigateTo({
+            url:'../activityApply/activityApply?actId='+actId
+        });
+        console.log(e.currentTarget.dataset.activityId);
     },
     //admin点击管理活动按钮
     adminClick:function(e){
