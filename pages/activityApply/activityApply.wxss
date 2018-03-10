@@ -1,0 +1,29 @@
+.activity_info{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.info1{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  padding:20px 20px 0 20px;
+}
+.type_image{
+  width: 120px;
+  height: 120px;
+  border: 1px #6fb34b solid;
+  text-align: center;
+  vertical-align: middle;
+}
+.type{
+  width: 100px;
+  height: 100px;
+}
+.brief_info{
+  padding-left: 10px;
+}
+.date_time_week{
+  
+}

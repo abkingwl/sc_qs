@@ -1,0 +1,38 @@
+<view class="page container">
+  <view class="activity_info">
+    <view class="info1">
+      <view class="type_image">
+        <image src="../../utils/images/badminton.png" class="type" />
+      </view>
+      <view class="brief_info">
+        <text class="date_time_week">2017-05-02 13:00-21:30 周5</text>
+        <text class="admin_man"></text>
+        <text class="place"></text>
+        <text class="cost"></text>
+        <text class="memo"></text>
+      </view>
+    </view>
+    <view class="info2">
+      <view class="deadline">
+        <text class="deadline_title"></text>
+        <text class="deadline_count"></text>
+      </view>
+      <view class="aplly_count">
+        <text class="count_title"></text>
+        <text class="count_info"></text>
+      </view>
+    </view>
+    <view class="info3">
+      <view class="applied_title"></view>
+      <view class="applied">
+        <view class="applied_item">
+          <image class="avatar" />
+          <text class="nick_name"></text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="activity_apply">
+    <button class="apply_btn weiui-btn" type="primary">我要报名</button>
+  </view>
+</view>
