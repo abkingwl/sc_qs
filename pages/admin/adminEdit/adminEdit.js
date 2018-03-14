@@ -46,6 +46,20 @@ Page({
     //向服务器请求本活动的具体数据
     //wx.request();
     //此处先用本地数据，进行一些处理和初始化
+    /*wx.request({
+      url: 'http://123.206.232.52', //仅为示例，并非真实的接口地址
+      data: {
+         x: '' ,
+         y: ''
+      },
+      header: {
+          'content-type': 'application/json' // 默认值
+      },
+      success: function(res) {
+        console.log(res.data)
+      }
+    })*/
+
 
     //初始化数据
     var formatData=this.initData(mockdata);
