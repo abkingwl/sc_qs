@@ -1,4 +1,5 @@
 var {getTimeNow,getDateToday,arrayContains,getArrayIndex,arrayToString}=require('../../../utils/js/util');
+var utilAll = require('../../../utils/js/util.js');
 var mockdata=require("adminEditMockData.js");
 const enStr=['type','date','startTime','endTime','place','count','cost'];
 const chStr=['活动类型','活动日期','开始时间','结束时间','活动地点','人数限制','费用'];
@@ -150,14 +151,38 @@ Page({
     });
   },
 
-  //confirm
+  //add
   confirmToAdd:function(){
     console.dir(this.data);
-    /*setTimeout(function(){
+    utilAll.showBusy('正在发布......')
+    setTimeout(function(){
       wx.navigateBack({
         delta:1
       })
-    },2000);*/
+    },2000);
+  },
+  //delete
+  confirmToDelete:function(){
+    wx.showModal({
+      title: '确认删除',
+      content: '活动一旦删除将不可恢复，请问是否确认删除？',
+      confirmText: "删除",
+      cancelText: "取消",
+      success: function (res) {
+          console.log(res);
+          if (res.confirm) {
+              console.log('用户点击删除')
+              utilAll.showBusy('正在删除......')
+              //call delete
+              setTimeout(function(){
+                wx.navigateBack({delta:1})
+              },2000);
+              
+          }else{
+              console.log('用户点击取消')
+          }
+      }
+    });
   },
 
 

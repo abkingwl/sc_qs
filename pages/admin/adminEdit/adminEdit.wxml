@@ -118,6 +118,7 @@
     <view class="weui-cells__tips">请正确填写各项信息</view>
     <view class="weui-btn-area">
         <button class="weui-btn" type="primary" bindtap="confirmToAdd">发布活动</button>
+        <button class="weui-btn" type="warn" bindtap="confirmToDelete">删除活动</button>
     </view>
   </view>
 </view>

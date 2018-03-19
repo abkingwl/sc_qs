@@ -1,7 +1,7 @@
 <!--index.wxml-->
 <view class="page container page_activity_list">
   <view class="activity_list_wrapper">
-    <scroll-view scroll-y class="activity_list_container">
+    <scroll-view scroll-y class="activity_list_container" bindscrolltoupper="onPullDownRefresh">
       <view class="activity_item" hover-class="activity_item_on" data-activity-id="{{activityList[index].activityId}}" wx:for="{{activityList}}" bindtap="testClick">
         <view class="activity_item_left">
           <text class="item_week">周{{activityList[index].activityWeek}}</text>

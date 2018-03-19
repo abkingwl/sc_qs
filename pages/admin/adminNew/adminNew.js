@@ -1,4 +1,5 @@
 var {getTimeNow,getDateToday,arrayContains,getArrayIndex,arrayToString}=require('../../../utils/js/util');
+var utilAll=require('../../../utils/js/util');
 
 const enStr=['type','date','startTime','endTime','place','count','cost'];
 const chStr=['活动类型','活动日期','开始时间','结束时间','活动地点','人数限制','费用'];
@@ -109,6 +110,12 @@ Page({
   //confirm
   confirmToAdd:function(){
     console.dir(this.data);
+    utilAll.showBusy('正在发布......')
+    setTimeout(function(){
+      wx.navigateBack({
+        delta:1
+      })
+    },2000);
   },
 
 

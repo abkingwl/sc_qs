@@ -11,8 +11,9 @@
     "backgroundColor":"#F6F6F6",
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "test",
-    "navigationBarTextStyle":"black"
+    "navigationBarTitleText": "苏城羽毛球",
+    "navigationBarTextStyle":"black",
+    "enablePullDownRefresh": true
   },
   "tabBar": {
     "selectedColor": "#1296db",
