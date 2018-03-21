@@ -1,0 +1,46 @@
+<view class="container page">
+  <view class="basic_info">
+    <view class="avatar">
+      <image class="userinfo_avatar"
+            src="{{logged ? userInfo.avatar : './user-unlogin.png'}}"
+            background-size="cover"
+        ></image>
+    </view>
+    <view class="basic">
+      <view class="nickname">{{userInfo.nickName}}</view>
+      <view class="sex">{{userinfo.sex?"女":"男"}}</view>
+      <view class="is_admin" wx:if="{{userInfo.isAdmin}}">管理员</view>
+    </view>
+  </view>
+  <view class="other_info">
+    <view class="page__bd">
+      <view class="weui-cells__title">其他信息</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell">
+          <view class="weui-cell__hd">
+              <image src="{{icon}}" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+          </view>
+          <view class="weui-cell__bd">是否常委</view>
+          <view class="weui-cell__ft">{{userInfo.isAdvanced?"是":"否"}}</view>
+        </view>
+        <view class="weui-cell" wx:if="{{!userInfo.isAdvanced}}">
+          <view class="weui-cell__hd">
+              <image src="{{icon}}" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+          </view>
+          <view class="weui-cell__bd">剩余会费</view>
+          <view class="weui-cell__ft">100</view>
+        </view>
+        <view class="weui-cell">
+          <view class="weui-cell__hd">
+              <image src="{{icon}}" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+          </view>
+          <view class="weui-cell__bd">活跃值</view>
+          <view class="weui-cell__ft">{{userInfo.activeValue}}</view>
+        </view>
+      </view>
+    </view>
+    <!--<view class="is_advance"></view>
+    <view class="fee_remaining"></view>
+    <view class="active_value"></view>-->
+  </view>
+</view>

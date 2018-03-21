@@ -23,7 +23,29 @@
 }
 .brief_info{
   padding-left: 10px;
+  display: flex;
+  flex-direction: column;
+
 }
 .date_time_week{
   
+}
+.weui-flex{
+  flex-wrap: wrap;
+}
+.weui-flex__item{
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.userinfo_avatar {
+  width: 140rpx;
+  height: 140rpx;
+  margin: 20rpx;
+  border-radius: 20%;
+  margin-bottom: 0px;
+}
+.member_name{
+  width:180rpx;
+  text-align: center;
 }

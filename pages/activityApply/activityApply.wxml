@@ -6,28 +6,34 @@
       </view>
       <view class="brief_info">
         <text class="date_time_week">2017-05-02 13:00-21:30 周5</text>
-        <text class="admin_man"></text>
-        <text class="place"></text>
-        <text class="cost"></text>
-        <text class="memo"></text>
+        <text class="admin_man">阿慧</text>
+        <text class="place">雅戈尔</text>
+        <text class="cost">35</text>
+        <text class="memo">妹子多，高手长</text>
       </view>
     </view>
     <view class="info2">
-      <view class="deadline">
-        <text class="deadline_title"></text>
-        <text class="deadline_count"></text>
-      </view>
-      <view class="aplly_count">
-        <text class="count_title"></text>
-        <text class="count_info"></text>
-      </view>
-    </view>
-    <view class="info3">
-      <view class="applied_title"></view>
-      <view class="applied">
-        <view class="applied_item">
-          <image class="avatar" />
-          <text class="nick_name"></text>
+      <view class="page__bd">
+        <view class="weui-cells__title">报名状态</view>
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell">
+            <view class="weui-cell__bd">时间剩余</view>
+            <view class="weui-cell__ft">12天05时05分05秒</view>
+          </view>
+          <view class="weui-cell">
+            <view class="weui-cell__bd">人员剩余</view>
+            <view class="weui-cell__ft">12/30</view>
+          </view>
+        </view>
+        <view class="weui-cells__title">已报名人员</view>
+        <view class="weui-flex">
+          <view class="weui-flex__item" wx:for="{{memberApply}}" wx:key="{{index}}">
+            <image class="userinfo_avatar"
+            src="{{logged ? userInfo.avatar : './user-unlogin.png'}}"
+            background-size="cover"
+        ></image>
+            <view class="member_name">{{memberApply[index]["name"]}}</view>
+          </view>
         </view>
       </view>
     </view>

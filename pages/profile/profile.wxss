@@ -1,0 +1,29 @@
+.basic_info{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  font-size: 17px;
+}
+.avatar{
+  height: 180rpx;
+  align-items: center;
+  align-content: center;
+}
+.userinfo_avatar {
+  width: 140rpx;
+  height: 140rpx;
+  margin: 20rpx;
+  border-radius: 20%;
+}
+.basic{
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+}
+.basic view{
+  margin: 0 10rpx;
+}
+.other_info{
+  width: 100%;
+}

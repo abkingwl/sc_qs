@@ -32,6 +32,7 @@ Page({
                 if (result) {
                     util.showSuccess('登录成功')
                     console.log(result)
+                    console.log("login")
                     that.setData({
                         logged: true
                     })
@@ -43,6 +44,7 @@ Page({
                         success(result) {
                             util.showSuccess('登录成功')
                             console.log(result.data.data)
+                            console.log("request")
                             that.setData({
                                 logged: true
                             })
@@ -65,10 +67,7 @@ Page({
             key:"userId",
             data:this.data.userInfo.userId
         });
-        /*var query=wx.createSelectorQuery().in(this);
-        query.select("#item1").boundingClientRect(function(res){
-            console.log(res.height);
-        }).exec();*/
+        
         //console.log("test git");
     },
     //define on pull down refresh close
