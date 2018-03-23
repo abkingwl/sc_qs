@@ -18,7 +18,7 @@
         <view class="weui-cells weui-cells_after-title">
           <view class="weui-cell">
             <view class="weui-cell__bd">时间剩余</view>
-            <view class="weui-cell__ft">12天05时05分05秒</view>
+            <view class="weui-cell__ft">{{timeLeft}}</view>
           </view>
           <view class="weui-cell">
             <view class="weui-cell__bd">人员剩余</view>
@@ -39,6 +39,7 @@
     </view>
   </view>
   <view class="activity_apply">
-    <button class="apply_btn weiui-btn" type="primary">我要报名</button>
+    <button class="apply_btn weiui-btn" type="primary" wx:if="{{apply==0}}">我要报名</button>
+    <button class="apply_btn weiui-btn" type="default" wx:if="{{apply==1}}" bindtap="cancelApply">取消报名</button>
   </view>
 </view>

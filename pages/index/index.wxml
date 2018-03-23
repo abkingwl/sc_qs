@@ -1,41 +1,31 @@
 <!--index.wxml-->
 <view class="page container page_activity_list">
   <view class="activity_list_wrapper">
-    <scroll-view scroll-y class="activity_list_container" bindscrolltoupper="onPullDownRefresh">
-      <view class="activity_item" hover-class="activity_item_on" data-activity-id="{{activityList[index].activityId}}" wx:for="{{activityList}}" bindtap="testClick">
+    <view class="weui-loadmore weui-loadmore_line" wx:if="{{!activityList}}">
+        <view class="weui-loadmore__tips weui-loadmore__tips_in-line">暂无数据</view>
+    </view>
+    <scroll-view scroll-y class="activity_list_container" bindscrolltoupper="onPullDownRefresh" wx:if="{{activityList}}">
+      <view class="activity_item" hover-class="activity_item_on" data-activity-apply="{{apply[index]}}" data-activity-id="{{activityList[index].activityId}}" wx:for="{{activityList}}" bindtap="testClick" wx:key="{{index}}">
+        <view wx:if="{{apply[index]}}" class="applied">已报名</view>
         <view class="activity_item_left">
-          <text class="item_week">周{{activityList[index].activityWeek}}</text>
-          <text class="item_place">{{activityList[index].activityPlace}}</text>
+          <text class="item_week">周{{activityList[index].week}}</text>
+          <text class="item_place">{{activityList[index].place}}</text>
         </view>
         <view class="activity_item_right">
           <view class="activity_item_right_line1">
-            <text class="item_date">{{activityList[index].activityDate}}</text>
-            <text class="item_time">{{activityList[index].activityTime}}</text>
+            <text class="item_date">{{activityList[index].date}}</text>
+            <text class="item_time">{{activityList[index].time}}</text>
           </view>
           <view class="activity_item_right_line2">
-            <text class="item_admin">{{activityList[index].activityAdmin}}</text>
-            <text class="item_member">{{activityList[index].activityApplyMemberCount}}/{{activityList[index].activityMemberCount}}</text>
-            <text class="item_cost">{{activityList[index].activityCost}}</text>
+            <text class="item_admin">{{activityList[index].adminId}}</text>
+            <text class="item_member">{{activityList[index].headApply}}/{{activityList[index].headLimit}}</text>
+            <text class="item_cost">{{activityList[index].cost}}</text>
           </view>
         </view>
       </view>
     </scroll-view>
   </view>
   <view class="operation_bar" wx:if="{{userInfo.isAdmin}}">
-    <!--<view class="operation_default" wx:if="{{operationOn==0}}">
-      <button class="btn_default_new" type="primary" plain="true">新建</button>
-      <button class="btn_default_edit" bindtap="editStart" type="primary">编辑</button>
-      <button class="btn_default_delete" bindtap="deleteStart" type="warn">删除</button>
-    </view>
-    <view class="operation_edit" wx:if="{{operationOn==1}}">
-      <text hidden>请先选择一个活动</text>
-      <button class="btn_edit_cancel" bindtap="cancelStart">取消</button>
-      <button class="btn_edit_edit" disabled="{{editNotSelected}}" type="primary">编辑</button>
-    </view>
-    <view class="operation_delete" wx:if="{{operationOn==2}}">
-      <button class="btn_edit_cancel" bindtap="cancelStart">取消</button>
-      <button class="btn_delete_delete" disabled="{{deleteNotSelected}}" type="warn">删除</button>
-    </view>-->
     <button class="operation_admin" type="primary" bindtap="adminClick">管理活动</button>
   </view>
 </view>

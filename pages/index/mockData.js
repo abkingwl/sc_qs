@@ -1,37 +1,34 @@
 var data={
   userInfo:{
     userId:1,
-    nickName:"ahui",
-    avatar:"",
     isAdmin:true,
-    isAdvancedMember:true,
-    activityApplyId:[
-      21,22
+    apply:[
+      1
     ]
   },
   activityList:[
     {
-      activityId:22,
-      activityName:"",
-      activityDate:"2018-04-01",
-      activityTime:"18:00-20:00",
-      activityWeek:"2",
-      activityPlace:"雅戈尔",
-      activityAdmin:1,
-      activityApplyMemberCount:12,
-      activityMemberCount:30,
-      activityCost:25
+      activityId:1,
+      name:"",
+      date:"2018-04-01",
+      time:"18:00-20:00",
+      week:"2",
+      place:"雅戈尔",
+      adminId:1,
+      headApply:12,
+      headLimit:30,
+      cost:25
     },{
-      activityId:23,
-      activityName:"",
-      activityDate:"2018-06-01",
-      activityTime:"17:00-20:30",
-      activityWeek:"4",
-      activityPlace:"启航",
-      activityAdmin:1,
-      activityApplyMemberCount:18,
-      activityMemberCount:25,
-      activityCost:100
+      activityId:2,
+      name:"",
+      date:"2018-06-01",
+      time:"17:00-20:30",
+      week:"4",
+      place:"启航",
+      adminId:2,
+      headApply:18,
+      headLimit:25,
+      cost:100
     }
   ]
 };

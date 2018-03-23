@@ -14,6 +14,34 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+//get time count down
+var getTimeCountDown=function(date){
+    var year = date.getFullYear()
+    var month = date.getMonth() + 1
+    var day = date.getDate()
+    var hour = date.getHours()
+    var minute = date.getMinutes()
+    var second = date.getSeconds()
+    var leftTime = (new Date(year,month-1,day,hour,minute,second)) - (new Date()); //计算剩余的毫秒数 
+    var days = parseInt(leftTime / 1000 / 60 / 60 / 24 , 10); //计算剩余的天数 
+    var hours = parseInt(leftTime / 1000 / 60 / 60 % 24 , 10); //计算剩余的小时 
+    var minutes = parseInt(leftTime / 1000 / 60 % 60, 10);//计算剩余的分钟 
+    var seconds = parseInt(leftTime / 1000 % 60, 10);//计算剩余的秒数 
+    days = days<10?"0"+days:days; 
+    hours = hours<10?"0"+hours:hours;
+    minutes = minutes<10?"0"+minutes:minutes;
+    seconds = seconds<10?"0"+seconds:seconds;
+    var leftCount = days+"天" + hours+"小时" + minutes+"分"+seconds+"秒";
+    return leftCount; 
+} 
+function checkTime(i){ //将0-9的数字前面加上0，例1变为01 
+    if(i<10) 
+    { 
+        i = "0" + i; 
+    } 
+    return i; 
+} 
+
 //array to string
 var arrayToString=function(arr){
     var tempString='';
@@ -77,10 +105,10 @@ var getTimeNow=function(){
 
 
 // 显示繁忙提示
-var showBusy = text => wx.showToast({
+var showBusy = (text,duration) => wx.showToast({
     title: text,
     icon: 'loading',
-    duration: 10000
+    duration: duration || 2000
 })
 
 // 显示成功提示
@@ -100,4 +128,4 @@ var showModel = (title, content) => {
     })
 }
 
-module.exports = { formatTime, showBusy, showSuccess, showModel, getDateToday, getTimeNow, arrayContains, getArrayIndex, arrayToString }
+module.exports = { formatTime, showBusy, showSuccess, showModel, getDateToday, getTimeNow, arrayContains, getArrayIndex, arrayToString, getTimeCountDown }
