@@ -9,11 +9,33 @@ Page({
     data: {
         userInfo:{},
         activityList:[],
-        apply:[]
+        apply:[],
+        logged:false,
+        openId:null
         
     },
 
     onLoad:function(){
+        //check user in
+        let _openId = wx.getStorageSync('openId')
+        this.setData({
+            openId:_openId || 0
+        })
+        console.log(this.data.openId)
+        wx.request({
+            url: config.service.host+'/weapp/getUserId',
+            method: "POST",
+            data: {
+               openId:this.data.openId
+            },
+            header: {
+                'content-type': 'application/json' // 默认值
+            },
+            success: function(res) {
+              console.log(res.data)
+            }
+        })
+
         this.setData({
             userInfo:mockData.userInfo,
             activityList:mockData.activityList,
