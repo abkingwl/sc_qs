@@ -10,16 +10,8 @@ App({
             success(result) {
                 if (result) {
                     wx.setStorage({
-                        key:"userId",
-                        data:result.data.data.userId
-                    })
-                    wx.setStorage({
                         key:"openId",
                         data:result.data.data.openId
-                    })
-                    wx.setStorage({
-                        key:"isAdmin",
-                        data:result.data.data.isAdmin
                     })
                     console.log("login")
                 } else {
@@ -29,16 +21,8 @@ App({
                         login: true,
                         success(result) {
                             wx.setStorage({
-                                key:"userId",
-                                data:result.data.data.userId
-                            })
-                            wx.setStorage({
                                 key:"openId",
                                 data:result.data.data.openId
-                            })
-                            wx.setStorage({
-                                key:"isAdmin",
-                                data:result.data.data.isAdmin
                             })
                             console.log("request")
                         },

@@ -14,6 +14,26 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+/**
+ * 将小程序的API封装成支持Promise的API
+ * @params fn {Function} 小程序原始API，如wx.login
+ */
+var wxPromisify=function(fn) {  
+  return function (obj = {}) { 
+    return new Promise((resolve, reject) => {      
+      obj.success = function (res) {        
+        resolve(res)      
+      }      
+
+      obj.fail = function (res) {        
+        reject(res)      
+      }      
+
+      fn(obj)    
+    })  
+  }
+}
+
 //get time count down
 var getTimeCountDown=function(date){
     var year = date.getFullYear()
@@ -49,6 +69,13 @@ var arrayToString=function(arr){
         tempString=tempString+arr[i]+',';
     };
     return tempString.substr(0,tempString.length-2);
+}
+
+//string to array split by .
+var stringToArray=function(str,de){
+    var de=de || '.'
+    let arr=str.split(de)
+    return arr
 }
 
 //whether in array
@@ -128,4 +155,4 @@ var showModel = (title, content) => {
     })
 }
 
-module.exports = { formatTime, showBusy, showSuccess, showModel, getDateToday, getTimeNow, arrayContains, getArrayIndex, arrayToString, getTimeCountDown }
+module.exports = { formatTime, showBusy, showSuccess, showModel, getDateToday, getTimeNow, arrayContains, getArrayIndex, arrayToString, getTimeCountDown, wxPromisify, stringToArray }
