@@ -1,6 +1,17 @@
 var util = require('../../utils/js/util.js');
 Page(
   {
+    /*
+    data:
+    {
+      int userId ls
+      {} activity server
+      boolean myApply options
+      
+    }
+
+
+    */
     data:{
       activityInfo:{
 

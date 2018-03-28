@@ -5,11 +5,20 @@
         <image src="../../utils/images/badminton.png" class="type" />
       </view>
       <view class="brief_info">
-        <text class="date_time_week">2017-05-02 13:00-21:30 周5</text>
+        <view class="date_time">
+          <text>{{date}}</text><text>{{time}}</text>
+        </view>
+        <view class="week_place">
+          <text>{{week}}</text><text>{{place}}</text>
+        </view>
+        <view class="admin_cost">
+          <text>{{adminNickName}}</text><text>{{cost}}</text>
+        </view>
+        <!--<text class="date_time_week">2017-05-02 13:00-21:30 周5</text>
         <text class="admin_man">阿慧</text>
         <text class="place">雅戈尔</text>
         <text class="cost">35</text>
-        <text class="memo">妹子多，高手长</text>
+        <text class="memo">妹子多，高手长</text>-->
       </view>
     </view>
     <view class="info2">

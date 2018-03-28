@@ -42,7 +42,7 @@ Page({
 
 
         Promise.all([_uid_act,_actList]).then(res=>{
-            console.log(res)
+            //console.log(res)
             let userId=res[0].data.user_id
             let isAdmin=res[0].data.isAdmin
             let act=res[0].data.activityApply
