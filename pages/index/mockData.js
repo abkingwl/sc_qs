@@ -13,7 +13,7 @@ var data={
       date:"2018-04-01",
       time:"18:00-20:00",
       week:"2",
-      place:"雅戈尔",
+      place:"雅戈尔地",
       adminId:1,
       headApply:12,
       headLimit:30,

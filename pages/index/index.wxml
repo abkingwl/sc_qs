@@ -1,15 +1,15 @@
 <!--index.wxml-->
 <view class="page container page_activity_list">
   <view class="activity_list_wrapper">
-    <view class="weui-loadmore weui-loadmore_line" wx:if="{{!activityList}}">
+    <view class="weui-loadmore weui-loadmore_line" wx:if="{{activityList.length==0}}">
         <view class="weui-loadmore__tips weui-loadmore__tips_in-line">暂无数据</view>
     </view>
-    <scroll-view scroll-y class="activity_list_container" bindscrolltoupper="onPullDownRefresh" wx:if="{{activityList}}">
+    <scroll-view scroll-y class="activity_list_container" bindscrolltoupper="onPullDownRefresh" wx:if="{{activityList.length>0}}">
       <view class="activity_item" hover-class="activity_item_on" data-activity-apply="{{apply[index]}}" data-activity-id="{{activityList[index].activityId}}" wx:for="{{activityList}}" bindtap="testClick" wx:key="{{index}}">
         <view wx:if="{{apply[index]}}" class="applied">已报名</view>
         <view class="activity_item_left">
           <text class="item_week">周{{activityList[index].week}}</text>
-          <text class="item_place">{{activityList[index].place}}</text>
+          <text class="item_place">{{activityList[index].placeName}}</text>
         </view>
         <view class="activity_item_right">
           <view class="activity_item_right_line1">
@@ -17,7 +17,7 @@
             <text class="item_time">{{activityList[index].time}}</text>
           </view>
           <view class="activity_item_right_line2">
-            <text class="item_admin">{{activityList[index].adminId}}</text>
+            <text class="item_admin">{{activityList[index].nickName}}</text>
             <text class="item_member">{{activityList[index].headApply}}/{{activityList[index].headLimit}}</text>
             <text class="item_cost">{{activityList[index].cost}}</text>
           </view>
@@ -25,7 +25,7 @@
       </view>
     </scroll-view>
   </view>
-  <view class="operation_bar" wx:if="{{userInfo.isAdmin}}">
+  <view class="operation_bar" wx:if="{{isAdmin}}">
     <button class="operation_admin" type="primary" bindtap="adminClick">管理活动</button>
   </view>
 </view>

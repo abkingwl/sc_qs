@@ -32,7 +32,7 @@ Page(
       console.log(date)
       var countDown=function(){
         var timeLeft=util.getTimeCountDown(date);
-        console.log(timeLeft)
+        //console.log(timeLeft)
         that.setData({
           timeLeft:timeLeft
         })

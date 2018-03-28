@@ -75,6 +75,7 @@ var arrayToString=function(arr){
 var stringToArray=function(str,de){
     var de=de || '.'
     let arr=str.split(de)
+    arr=arr.slice(0, arr.length-1)
     return arr
 }
 

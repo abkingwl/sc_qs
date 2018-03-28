@@ -4,107 +4,76 @@ var config = require('../../config')
 var util = require('../../utils/js/util.js');
 var mockData=require("mockData.js");
 
-var wxRequestPromise=util.wxPromisify(wx.request)
-
-
 Page({
-    data: {
-        userInfo:{},
-        activityList:[],
-        userApply:[],
-        apply:[],
-        logged:false,
-        openId:null
-        
+    data: {},
+
+    onShow:function(){
+        let that=this
+        console.log("index: onshow")
+        //获取userId,actApply,isAdmin，如果为首次登录，则创建用户
+        let _uid_act=new Promise((resolve,reject)=>{
+            wx.request({
+                url: config.service.host+'/weapp/getUserId',
+                method: "POST",
+                data: {
+                    openId:this.data.openId
+                },
+                success: function(res) {
+                    resolve(res)
+                },
+                fail: function(err) {
+                    reject(err)
+                }
+            })
+        })
+
+        //获取actList
+        var _actList=new Promise((resolve,reject)=>{
+            wx.request({
+                url: config.service.host+'/weapp/getActivityList',
+                success:res=>{
+                    resolve(res)
+                },
+                fail:err=>{
+                    reject(err)
+                }
+            })
+        })
+
+
+        Promise.all([_uid_act,_actList]).then(res=>{
+            console.log(res)
+            let userId=res[0].data.user_id
+            let isAdmin=res[0].data.isAdmin
+            let act=res[0].data.activityApply
+            let actList=res[1].data
+            let apply=[]
+            for(var i=0; i<actList.length; i++){
+                apply.push(act.indexOf(actList[i]['activity_id'])!=-1?1:0)
+            }
+            that.setData({
+                userId:userId,
+                act:act,
+                activityList:actList,
+                apply:apply,
+                isAdmin:isAdmin
+            })
+        }).catch(err=>{
+            console.log("error:"+err)
+        })
     },
 
     onLoad:function(){
-        //check user in
+        console.log("index: onload")
+
+        //从localstorage获得当前微信用户的openId
         let that=this
         let _openId = wx.getStorageSync('openId')
         this.setData({
             openId:_openId || 0
         })
-        //console.log(this.data.openId)
+
         
-        //获取用户id，如果为首次登录，则创建用户
-        wxRequestPromise({
-            url: config.service.host+'/weapp/getUserId',
-            method: "POST",
-            data: {
-               openId:this.data.openId
-            },
-            header: {
-                'content-type': 'application/json'
-            }
-        }).then(res=>{
-            //console.log(res.data)
-            let userId=res.data.user_id
-            //console.log(userId)
-            wxRequestPromise({url: config.service.host+'/weapp/getUserActivityApply',
-            method: "POST",
-            data: {
-               userId:userId
-            },
-            header: {
-                'content-type': 'application/json'
-            }}).then(res=>{
-                console.log(JSON.stringify(res.data))
-                if(!res) return
-                let act=util.stringToArray(res.data.activityApply)
-                that.setData({
-                    userApply:act
-                },function(){
-                    let apply=[];
-                    that.data.activityList.forEach(element => {
-                        apply.push((that.userApply.indexOf(element.activityId)!=-1)?1:0);
-                    });
-                    that.setData({
-                        apply:apply
-                    })
-                })
-            }).catch(err=>{
-
-            })
-            that.setData({
-                logged:true
-            })
-        }).catch(err=>{
-            console.log("error:"+err)
-        })
-
-        // wx.request({
-        //     url: config.service.host+'/weapp/getUserId',
-        //     method: "POST",
-        //     data: {
-        //        openId:this.data.openId
-        //     },
-        //     header: {
-        //         'content-type': 'application/json'
-        //     },
-        //     success: function(res) {
-        //       console.log(res.data)
-        //       that.setData({
-        //           logged:true
-        //       })
-        //     },
-        //     fail:function(err){
-        //         console.log("error:"+err)
-        //     }
-        // })
-
-        this.setData({
-            userInfo:mockData.userInfo,
-            activityList:mockData.activityList,
-        });
-        // var apply=[];
-        // this.data.activityList.forEach(element => {
-        //     apply.push((this.data.userInfo.apply.indexOf(element.activityId)!=-1)?1:0);
-        // });
-        // this.setData({
-        //     apply:apply
-        // })
-        //console.log("test git");
     },
     //define on pull down refresh close
     /*onPullDownRefresh:function(){
